@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Character Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button shape="round" color="medium" href="home">back</ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeMd="4" offsetMd="4">
+        <div *ngIf="character">
+          <ion-card class="ion-text-center">
+            <ion-card-content>
+              <img src="{{character.image}}" alt="">
+              <ion-card-title>
+                {{character.name}}
+              </ion-card-title>
+              <p><ion-label color="dark">Species:</ion-label> {{character.species}}</p>
+              <p><ion-label color="dark">Origin:</ion-label> {{character.origin.name}}</p>
+              <p><ion-label color="dark">Location:</ion-label> {{character.location.name}}</p>
+              <p><ion-label color="dark">Number of Appearances:</ion-label> {{character.episode.length}}</p>
+              <p><ion-label color="dark">Episodes:</ion-label></p>
+              <ion-item *ngFor="let episode of character.episode">
+                {{episode}}
+              </ion-item>
+            </ion-card-content>
+
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="secondary">
+    <ion-title>For more information visit <a href="https://rickandmortyapi.com">https://rickandmortyapi.com</a> </ion-title>
+  </ion-toolbar>
+</ion-footer>
